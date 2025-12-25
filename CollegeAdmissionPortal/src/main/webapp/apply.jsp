@@ -14,10 +14,10 @@
           <label class="form-label">Year</label>
           <input type="number" name="year" class="form-control" required/>
       </div>
-      <div class="mb-3">
+      <!-- <div class="mb-3">
           <label class="form-label">Qualifications</label>
           <textarea name="qualifications" class="form-control"></textarea>
-      </div>
+      </div> -->
       <button type="submit" class="btn btn-primary">Submit Application</button>
       <a href="dashboard.jsp" class="btn btn-secondary">Back</a>
     </form>
