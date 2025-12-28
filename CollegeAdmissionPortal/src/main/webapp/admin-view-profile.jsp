@@ -63,7 +63,7 @@
     </div>
 
     <% } else { %>
-        <div class="alert alert-warning">Profile not found</div>
+        //<div class="alert alert-warning">Profile not found</div>
             <% } %>
          </div>
 
