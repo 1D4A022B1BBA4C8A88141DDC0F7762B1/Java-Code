@@ -10,16 +10,35 @@ import java.util.List;
 public class ApplicationDAO {
 
     public boolean submit(Application app) throws SQLException {
-        String sql = "INSERT INTO applications (user_id, course, year, qualifications) VALUES (?, ?, ?, ?)";
+
+        String sql = "INSERT INTO applications "
+            + "(user_id, student_name, father_name, contact_no, dob, "
+            + "permanent_address, local_address, receipt_no, course, year, "
+            + "tenth_percentage, twelfth_percentage, qualifications, student_signature) "
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
+
             ps.setInt(1, app.getUserId());
-            ps.setString(2, app.getCourse());
-            ps.setInt(3, app.getYear());
-            ps.setString(4, app.getQualifications());
+            ps.setString(2, app.getStudentName());
+            ps.setString(3, app.getFatherName());
+            ps.setString(4, app.getContactNo());
+            ps.setDate(5, app.getDob());
+            ps.setString(6, app.getPermanentAddress());
+            ps.setString(7, app.getLocalAddress());
+            ps.setString(8, app.getReceiptNo());
+            ps.setString(9, app.getCourse());
+            ps.setInt(10, app.getYear());
+            ps.setDouble(11, app.getTenthPercentage());
+            ps.setDouble(12, app.getTwelfthPercentage());
+            ps.setString(13, app.getQualifications());
+            ps.setString(14, app.getStudentSignature());
+
             return ps.executeUpdate() == 1;
         }
     }
+
 
     public List<Application> getAllApplications() throws SQLException {
         String sql = "SELECT * FROM applications ORDER BY applied_on DESC";

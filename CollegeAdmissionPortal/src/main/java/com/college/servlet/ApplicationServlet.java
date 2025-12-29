@@ -1,6 +1,7 @@
 package com.college.servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import com.college.dao.ApplicationDAO;
 import com.college.model.Application;
@@ -18,7 +19,8 @@ import jakarta.servlet.http.HttpSession;
 public class ApplicationServlet extends HttpServlet {
     private ApplicationDAO appDAO = new ApplicationDAO();
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @SuppressWarnings("unused")
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             HttpSession session = req.getSession(false);
             if (session == null || session.getAttribute("user") == null) {
@@ -33,9 +35,19 @@ public class ApplicationServlet extends HttpServlet {
 
             Application a = new Application();
             a.setUserId(user.getId());
-            a.setCourse(course);
-            a.setYear(year);
-            a.setQualifications(quals);
+
+            a.setStudentName(req.getParameter("studentName"));
+            a.setFatherName(req.getParameter("fatherName"));
+            a.setContactNo(req.getParameter("contactNo"));
+            a.setDob(Date.valueOf(req.getParameter("dob")));
+            a.setPermanentAddress(req.getParameter("permanentAddress"));
+            a.setLocalAddress(req.getParameter("localAddress"));
+            a.setReceiptNo(req.getParameter("receiptNo"));
+            a.setCourse(req.getParameter("course"));
+            a.setYear(Integer.parseInt(req.getParameter("year")));
+            a.setTenthPercentage(Double.parseDouble(req.getParameter("tenthPercentage")));
+            a.setTwelfthPercentage(Double.parseDouble(req.getParameter("twelfthPercentage")));
+            a.setQualifications(req.getParameter("qualifications"));
 
             boolean ok = appDAO.submit(a);
             if (ok) resp.sendRedirect("dashboard.jsp?msg=applied");
