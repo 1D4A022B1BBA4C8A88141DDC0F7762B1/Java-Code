@@ -17,10 +17,8 @@ public class Application {
     private String receiptNo;
 
     private String course;
-    private int year;
     private double tenthPercentage;
     private double twelfthPercentage;
-    private String qualifications;
 
     private String studentSignature;
 
@@ -58,17 +56,11 @@ public class Application {
     public String getCourse() { return course; }
     public void setCourse(String course) { this.course = course; }
 
-    public int getYear() { return year; }
-    public void setYear(int year) { this.year = year; }
-
     public double getTenthPercentage() { return tenthPercentage; }
     public void setTenthPercentage(double tenthPercentage) { this.tenthPercentage = tenthPercentage; }
 
     public double getTwelfthPercentage() { return twelfthPercentage; }
     public void setTwelfthPercentage(double twelfthPercentage) { this.twelfthPercentage = twelfthPercentage; }
-
-    public String getQualifications() { return qualifications; }
-    public void setQualifications(String qualifications) { this.qualifications = qualifications; }
 
     public String getStudentSignature() { return studentSignature; }
     public void setStudentSignature(String studentSignature) { this.studentSignature = studentSignature; }
