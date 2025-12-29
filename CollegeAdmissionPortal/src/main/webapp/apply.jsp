@@ -74,6 +74,13 @@
                     <option>BE</option>
                 </select>
             </div>
+            
+            <!-- Joining Year -->
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">Joining Year</label>
+                <input type="text" name="receiptNo" class="form-control"
+                       placeholder="Enter Joining Year" required>
+            </div>
 
             <!-- 10th Percentage -->
             <div class="col-md-6">
@@ -87,6 +94,13 @@
                 <label class="form-label fw-semibold">12th Standard Percentage</label>
                 <input type="number" step="0.01" name="twelfthPercentage"
                        class="form-control" placeholder="Enter 12th percentage" required>
+            </div>
+            
+            <!-- Qualification -->
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">Qualification</label>
+                <input type="number" step="0.01" name="twelfthPercentage"
+                       class="form-control" placeholder="Enter Your Qualification" required>
             </div>
 
             <!-- Signature -->

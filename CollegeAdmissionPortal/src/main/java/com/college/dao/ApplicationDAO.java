@@ -13,8 +13,8 @@ public class ApplicationDAO {
 
         String sql = "INSERT INTO applications "
             + "(user_id, student_name, father_name, contact_no, dob, "
-            + "permanent_address, local_address, receipt_no, course, "
-            + "tenth_percentage, twelfth_percentage, student_signature) "
+            + "permanent_address, local_address, receipt_no, course, year, "
+            + "tenth_percentage, twelfth_percentage, qualifications, student_signature) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DBUtil.getConnection();
@@ -29,9 +29,11 @@ public class ApplicationDAO {
             ps.setString(7, app.getLocalAddress());
             ps.setString(8, app.getReceiptNo());
             ps.setString(9, app.getCourse());
-            ps.setDouble(10, app.getTenthPercentage());
-            ps.setDouble(11, app.getTwelfthPercentage());
-            ps.setString(12, app.getStudentSignature());
+            ps.setInt(10, app.getYear());
+            ps.setDouble(11, app.getTenthPercentage());
+            ps.setDouble(12, app.getTwelfthPercentage());
+            ps.setString(13, app.getQualifications());
+            ps.setString(14, app.getStudentSignature());
 
             return ps.executeUpdate() == 1;
         }
@@ -49,6 +51,8 @@ public class ApplicationDAO {
                 a.setId(rs.getInt("id"));
                 a.setUserId(rs.getInt("user_id"));
                 a.setCourse(rs.getString("course"));
+                a.setYear(rs.getInt("year"));
+                a.setQualifications(rs.getString("qualifications"));
                 a.setStatus(rs.getString("status"));
                 a.setAppliedOn(rs.getTimestamp("applied_on"));
                 list.add(a);

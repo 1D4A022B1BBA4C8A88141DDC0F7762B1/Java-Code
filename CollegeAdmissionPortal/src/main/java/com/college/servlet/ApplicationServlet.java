@@ -44,8 +44,10 @@ public class ApplicationServlet extends HttpServlet {
             a.setLocalAddress(req.getParameter("localAddress"));
             a.setReceiptNo(req.getParameter("receiptNo"));
             a.setCourse(req.getParameter("course"));
+            a.setYear(Integer.parseInt(req.getParameter("year")));
             a.setTenthPercentage(Double.parseDouble(req.getParameter("tenthPercentage")));
             a.setTwelfthPercentage(Double.parseDouble(req.getParameter("twelfthPercentage")));
+            a.setQualifications(req.getParameter("qualifications"));
 
             boolean ok = appDAO.submit(a);
             if (ok) resp.sendRedirect("dashboard.jsp?msg=applied");
