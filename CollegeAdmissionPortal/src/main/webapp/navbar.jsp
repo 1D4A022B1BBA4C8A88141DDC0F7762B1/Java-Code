@@ -4,22 +4,39 @@
 <%
     User v = (User) session.getAttribute("user");
 %>
+
 <div class="sidebar p-3">
-    <h4>Menu</h4>
-    <a href="dashboard.jsp">Dash board</a>
-    <% if(v != null && !"student".equals(v.getRole())){ %>
-        <a href="apply.jsp">Apply for Course</a>
-    <% } %>
-    <% if(v != null && "admin".equals(v.getRole())){ %>
-        <a href="admin">Admin Panel</a>
-    <% } %>
-    <% if ("admin".equals(v.getRole())) { %>
-    <li class="nav-item">
-        <a href="admin-view-profiles.jsp" class="nav-link">
-            Student Profiles
+    <h4 class="mb-3">Menu</h4>
+
+    <% if (v != null) { %>
+
+        <!-- DASHBOARD (Both Admin & Student) -->
+        <a href="dashboard.jsp" class="d-block mb-2">
+            Dashboard
         </a>
-    </li>
+
+        <!-- STUDENT ONLY -->
+        <% if ("student".equalsIgnoreCase(v.getRole())) { %>
+            <a href="apply.jsp" class="d-block mb-2">
+                Apply for Course
+            </a>
+        <% } %>
+
+        <!-- ADMIN ONLY -->
+        <% if ("admin".equalsIgnoreCase(v.getRole())) { %>
+            <a href="admin" class="d-block mb-2">
+                Admin Panel
+            </a>
+
+            <a href="admin-view-profiles.jsp" class="d-block mb-2">
+                Student Profiles
+            </a>
+        <% } %>
+
+        <!-- LOGOUT -->
+        <a href="logout.jsp" class="d-block mt-3 text-danger fw-semibold">
+            Logout
+        </a>
+
     <% } %>
-    
-    <a href="logout.jsp">Logout</a>
 </div>

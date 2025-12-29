@@ -77,10 +77,11 @@
             
             <!-- Joining Year -->
             <div class="col-md-6">
-                <label class="form-label fw-semibold">Joining Year</label>
-                <input type="text" name="receiptNo" class="form-control"
-                       placeholder="Enter Joining Year" required>
+                <label class="form-label fw-semibold">Year of Study</label>
+                <input type="number" name="year" class="form-control"
+                       placeholder="Enter year (1 / 2 / 3 / 4)" required>
             </div>
+
 
             <!-- 10th Percentage -->
             <div class="col-md-6">
@@ -99,9 +100,11 @@
             <!-- Qualification -->
             <div class="col-md-6">
                 <label class="form-label fw-semibold">Qualification</label>
-                <input type="number" step="0.01" name="twelfthPercentage"
-                       class="form-control" placeholder="Enter Your Qualification" required>
+                <input type="text" name="qualifications"
+                       class="form-control"
+                       placeholder="Eg: HSC, Diploma, ITI" required>
             </div>
+            
 
             <!-- Signature -->
             <div class="col-md-6">
